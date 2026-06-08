@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Telegram Servislar</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="light-theme">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="admin-logo">⚙️ Admin Panel</div>
+            <nav class="admin-nav">
+                <button class="nav-item active" data-page="dashboard">📊 Statistika</button>
+                <button class="nav-item" data-page="users">👥 Foydalanuvchilar</button>
+                <button class="nav-item" data-page="transactions">💳 Tranzaksiyalar</button>
+                <button class="nav-item" data-page="prices">💰 Narxlar</button>
+                <button class="nav-item" data-page="themes">🎨 Ranglar</button>
+                <button class="nav-item" data-page="settings">⚙️ Sozlamalar</button>
+                <button class="nav-item logout" id="logoutBtn">🚪 Chiqish</button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <!-- Header -->
+            <div class="admin-header">
+                <h1>Admin Panel</h1>
+                <div class="admin-user-info">
+                    <button id="themeSwitcher" class="theme-switcher">🌙</button>
+                    <span id="adminName">Admin</span>
+                </div>
+            </div>
+
+            <!-- Dashboard -->
+            <div id="dashboard" class="page active">
+                <h2>📊 Statistika</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Jami Foydalanuvchilar</div>
+                            <div class="stat-value" id="totalUsers">0</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💳</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Jami To'lovlar</div>
+                            <div class="stat-value" id="totalTransactions">0</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Jami Daromad</div>
+                            <div class="stat-value" id="totalRevenue">0 UZS</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-info">
+                            <div class="stat-label">Muvaffaqiyatli</div>
+                            <div class="stat-value" id="successRate">0%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users -->
+            <div id="users" class="page">
+                <h2>👥 Foydalanuvchilar</h2>
+                <div class="table-container">
+                    <table id="usersTable" class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ism</th>
+                                <th>Username</th>
+                                <th>Qo'shilgan Sana</th>
+                                <th>O'chirib tashlash</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Transactions -->
+            <div id="transactions" class="page">
+                <h2>💳 Tranzaksiyalar</h2>
+                <div class="table-container">
+                    <table id="transactionsTable" class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>User ID</th>
+                                <th>Summa</th>
+                                <th>Mahsulot</th>
+                                <th>Status</th>
+                                <th>Sana</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Prices -->
+            <div id="prices" class="page">
+                <h2>💰 Narxlarni Boshqarish</h2>
+                <div class="price-editor">
+                    <div class="price-section">
+                        <h3>⭐ Telegram Stars</h3>
+                        <div id="starsPrices" class="prices-list"></div>
+                        <button class="btn btn-secondary" onclick="addNewPrice('stars')">+ Yangi Paket</button>
+                    </div>
+                    <div class="price-section">
+                        <h3>👑 Telegram Premium</h3>
+                        <div id="premiumPrices" class="prices-list"></div>
+                        <button class="btn btn-secondary" onclick="addNewPrice('premium')">+ Yangi Paket</button>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="savePrices()">💾 Narxlarni Saqlash</button>
+            </div>
+
+            <!-- Themes -->
+            <div id="themes" class="page">
+                <h2>🎨 Ranglarni O'zgartirish</h2>
+                <div class="theme-editor">
+                    <div class="theme-section">
+                        <h3>Kunduzgi Rejim</h3>
+                        <div class="color-picker-grid" id="lightThemePicker"></div>
+                    </div>
+                    <div class="theme-section">
+                        <h3>Kechqurungi Rejim</h3>
+                        <div class="color-picker-grid" id="darkThemePicker"></div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="saveThemes()">💾 Ranglarni Saqlash</button>
+            </div>
+
+            <!-- Settings -->
+            <div id="settings" class="page">
+                <h2>⚙️ Sozlamalar</h2>
+                <div class="settings-form">
+                    <div class="form-group">
+                        <label>Admin Paroli</label>
+                        <input type="password" id="adminPassword" placeholder="_935705511_" value="_935705511_">
+                    </div>
+                    <div class="form-group">
+                        <label>Telegram Bot Token</label>
+                        <input type="text" id="botToken" placeholder="8952022629:AAEfe5BGjWu5eMv7m9MpV-rLD1PWJCIFT20" value="8952022629:AAEfe5BGjWu5eMv7m9MpV-rLD1PWJCIFT20">
+                    </div>
+                    <div class="form-group">
+                        <label>Karta Raqami</label>
+                        <input type="text" id="cardNumber" placeholder="4916990345186545" value="4916990345186545">
+                    </div>
+                    <div class="form-group">
+                        <label>Karta Egasi</label>
+                        <input type="text" id="cardHolder" placeholder="Rano Ruzieva" value="Rano Ruzieva">
+                    </div>
+                    <button class="btn btn-primary" onclick="saveSettings()">💾 Sozlamalarni Saqlash</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

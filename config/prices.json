@@ -1,0 +1,94 @@
+{
+  "telegram_stars": [
+    {
+      "id": 1,
+      "name_uz": "Kichik Paket",
+      "name_ru": "Маленький Пакет",
+      "name_en": "Small Package",
+      "stars": 100,
+      "price_uzs": 50000,
+      "price_usd": 4.99,
+      "discount": 0,
+      "popular": false
+    },
+    {
+      "id": 2,
+      "name_uz": "O'rta Paket",
+      "name_ru": "Средний Пакет",
+      "name_en": "Medium Package",
+      "stars": 500,
+      "price_uzs": 200000,
+      "price_usd": 19.99,
+      "discount": 10,
+      "popular": true
+    },
+    {
+      "id": 3,
+      "name_uz": "Katta Paket",
+      "name_ru": "Большой Пакет",
+      "name_en": "Large Package",
+      "stars": 1000,
+      "price_uzs": 350000,
+      "price_usd": 34.99,
+      "discount": 15,
+      "popular": false
+    },
+    {
+      "id": 4,
+      "name_uz": "Premium Paket",
+      "name_ru": "Премиум Пакет",
+      "name_en": "Premium Package",
+      "stars": 5000,
+      "price_uzs": 1500000,
+      "price_usd": 149.99,
+      "discount": 20,
+      "popular": false
+    }
+  ],
+  "telegram_premium": [
+    {
+      "id": 1,
+      "duration_uz": "1 Oy",
+      "duration_ru": "1 Месяц",
+      "duration_en": "1 Month",
+      "months": 1,
+      "price_uzs": 120000,
+      "price_usd": 11.99,
+      "discount": 0,
+      "popular": false
+    },
+    {
+      "id": 2,
+      "duration_uz": "3 Oy",
+      "duration_ru": "3 Месяца",
+      "duration_en": "3 Months",
+      "months": 3,
+      "price_uzs": 300000,
+      "price_usd": 29.99,
+      "discount": 10,
+      "popular": true
+    },
+    {
+      "id": 3,
+      "duration_uz": "6 Oy",
+      "duration_ru": "6 Месяцев",
+      "duration_en": "6 Months",
+      "months": 6,
+      "price_uzs": 540000,
+      "price_usd": 54.99,
+      "discount": 15,
+      "popular": false
+    },
+    {
+      "id": 4,
+      "duration_uz": "12 Oy",
+      "duration_ru": "12 Месяцев",
+      "duration_en": "12 Months",
+      "months": 12,
+      "price_uzs": 960000,
+      "price_usd": 99.99,
+      "discount": 20,
+      "popular": false
+    }
+  ]
+}

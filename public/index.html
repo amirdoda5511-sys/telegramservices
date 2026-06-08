@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Servislar - Stars va Premium Sotish</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Telegram Stars va Premium sotib oling. Xavfsiz to'lov. Tezkor yetkazib berish.">
+    <meta name="keywords" content="telegram stars, telegram premium, sotib olish, uzum market">
+    <meta property="og:title" content="Telegram Servislar">
+    <meta property="og:description" content="Eng yaxshi narxlarda Telegram Stars va Premium">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <span class="logo-icon">📱</span>
+                    <span class="logo-text">Telegram Servislar</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#stars">Stars</a>
+                    <a href="#premium">Premium</a>
+                    <a href="#reviews">Sharhlar</a>
+                    <button id="langBtn" class="lang-btn">🌐 O'zbek</button>
+                    <button id="themeBtn" class="theme-btn">🌙</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Login/Signup Modal -->
+        <div id="authModal" class="modal hidden">
+            <div class="modal-content auth-modal">
+                <button class="close-btn">&times;</button>
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Kirish</button>
+                    <button class="tab-btn" data-tab="signup">Ro'yxatdan o'tish</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <label>Telegram Username</label>
+                        <input type="text" id="login-username" placeholder="@username" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Kirish</button>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signupForm" class="auth-form hidden">
+                    <div class="form-group">
+                        <label>Ism</label>
+                        <input type="text" id="signup-firstname" placeholder="Isim" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Familiya (ixtiyoriy)</label>
+                        <input type="text" id="signup-lastname" placeholder="Familiya">
+                    </div>
+                    <div class="form-group">
+                        <label>Telegram Username</label>
+                        <input type="text" id="signup-username" placeholder="@username" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Ro'yxatdan o'tish</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content animate-fade-in">
+                    <h1>🌟 Telegram Servislar</h1>
+                    <p>Telegram Stars va Premium eng arzon narxlarda!</p>
+                    <div class="hero-buttons">
+                        <button id="buyBtn" class="btn btn-primary btn-lg">🛍️ Hozir Sotib Ol</button>
+                        <button class="btn btn-secondary btn-lg">📞 Biz bilan bog'laning</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card">💫</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Telegram Stars Section -->
+        <section id="stars" class="products-section">
+            <div class="container">
+                <h2>⭐ Telegram Stars</h2>
+                <div class="products-grid" id="starsGrid">
+                    <!-- Products will be inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Telegram Premium Section -->
+        <section id="premium" class="products-section">
+            <div class="container">
+                <h2>👑 Telegram Premium</h2>
+                <div class="products-grid" id="premiumGrid">
+                    <!-- Products will be inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="reviews-section">
+            <div class="container">
+                <h2>💬 Foydalanuvchilar Sharhları</h2>
+                <div class="reviews-grid" id="reviewsGrid">
+                    <!-- Reviews will be inserted here -->
+                </div>
+                <div style="text-align: center;">
+                    <button class="btn btn-primary" id="addReviewBtn">+ Sharh Qo'shish</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Modal -->
+        <div id="paymentModal" class="modal hidden">
+            <div class="modal-content payment-modal">
+                <button class="close-btn">&times;</button>
+                <h2>💳 To'lov Qilish</h2>
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label>Karta Raqami</label>
+                        <input type="text" id="cardNumber" placeholder="4916 9903 4518 6545" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Karta Egasi</label>
+                        <input type="text" id="cardHolder" placeholder="Rano Ruzieva" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Muddat</label>
+                            <input type="text" id="expiry" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" id="cvv" placeholder="123" required>
+                        </div>
+                    </div>
+                    <div class="payment-summary">
+                        <p>Mahsulot: <span id="paymentProduct">-</span></p>
+                        <p>Summa: <span id="paymentAmount">-</span></p>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">💳 To'lash</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Admin Link -->
+        <div class="admin-link">
+            <a href="admin.html">⚙️ Admin</a>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
